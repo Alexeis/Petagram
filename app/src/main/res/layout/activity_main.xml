@@ -14,8 +14,16 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvMascotas"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/miActionBar"
         />
+
+    <!---<android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabMiFAB"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/rvMascotas"
+        android:layout_gravity="bottom"
+        android:src="@drawable/camera_outline" />-->
 
 </RelativeLayout>

@@ -1,7 +1,6 @@
 package com.example.petagram;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,10 +32,11 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
 
     // Asocia cada elemento de la lista con cada view
     @Override
-    public void onBindViewHolder(MascotaViewHolder MascotaViewHolder, final int position) {
+    public void onBindViewHolder(final MascotaViewHolder MascotaViewHolder, final int position) {
         final Mascotas mascota = mascotas.get(position);
         MascotaViewHolder.imgFoto.setImageResource(mascota.getFoto());
         MascotaViewHolder.tvNombreCV.setText(mascota.getNombre());
+        MascotaViewHolder.tvNumeroCV.setText(String.valueOf(mascota.getRating()));
 
         MascotaViewHolder.imgFoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,8 +49,8 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
             @Override
             public void onClick(View view) {
                 Toast.makeText(activity, "Diste like a " + mascota.getNombre(), Toast.LENGTH_SHORT).show();
-
-
+                mascota.setRating(Integer.valueOf((String) MascotaViewHolder.tvNumeroCV.getText()) + 1);
+                MascotaViewHolder.tvNumeroCV.setText(String.valueOf(mascota.getRating()));
             }
         });
     }
@@ -64,6 +64,7 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
 
         private ImageView imgFoto;
         private TextView tvNombreCV;
+        private TextView tvNumeroCV;
         private ImageButton btnHueso;
 
         public MascotaViewHolder(View itemView) {
@@ -71,6 +72,7 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
             imgFoto      = itemView.findViewById(R.id.imgFoto);
             tvNombreCV   = itemView.findViewById(R.id.tvNombreCV);
             btnHueso     = itemView.findViewById(R.id.btnHueso);
+            tvNumeroCV   = itemView.findViewById(R.id.tvNumeroCV);
         }
     }
 }
