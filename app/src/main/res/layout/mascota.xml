@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:card_view="http://schemas.android.com/apk/res-auto"
-android:id="@+id/cvMascota"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:layout_marginBottom="@dimen/activity_horizontal_margin"
-card_view:cardCornerRadius="@dimen/corner_radius_cardview">
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvMascota"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+    card_view:cardCornerRadius="@dimen/corner_radius_cardview">
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -16,9 +16,10 @@ card_view:cardCornerRadius="@dimen/corner_radius_cardview">
 
     <ImageView
         android:id="@+id/imgFoto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/rayo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/perrito"
+        android:layout_gravity="center"
         />
 
     <LinearLayout
@@ -26,37 +27,39 @@ card_view:cardCornerRadius="@dimen/corner_radius_cardview">
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/btnLike"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
-            android:background="@drawable/like"
-
+        <ImageView
+            android:id="@+id/imgHueso"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/hueso"
+            android:layout_gravity="center"
             />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvNombreCV"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="@dimen/left">
+            android:text="@string/nombre"
+            android:textSize="@dimen/nombre_cardview"
+            android:layout_marginLeft="15dp"
+            />
 
-            <TextView
-                android:id="@+id/tvNombreCV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pnombre"
-                android:textSize="@dimen/nombre_cardview"
-                android:textStyle="bold"
-                />
+        <TextView
+            android:id="@+id/tvNumeroCV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textSize="@dimen/nombre_cardview"
+            android:layout_marginLeft="150dp"
+            />
 
-            <TextView
-                android:id="@+id/tvTelefonoCV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ptelefono"
-                />
-
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/imgHuesoColor"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/hueso_color"
+            android:layout_marginLeft="15dp"
+            />
 
     </LinearLayout>
 
