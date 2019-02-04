@@ -6,7 +6,7 @@
     <dimen name="elevacion_actionbar">4dp</dimen>
     <dimen name="nombre_contacto">33dp</dimen>
     <dimen name="nombre_cardview">20dp</dimen>
-    <dimen name="ancho_telefono">44dp</dimen>
+    <dimen name="dimen_foto">320dp</dimen>
     <dimen name="text_height">25dp</dimen>
     <dimen name="left">10dp</dimen>
     <dimen name="top">20dp</dimen>
