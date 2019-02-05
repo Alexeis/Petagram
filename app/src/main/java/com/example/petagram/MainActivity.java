@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (favoritas.size() < 5){
-            for(int i = 0; i < favoritas.size(); i++){
+            for(int i = 0; i < mascotas.size(); i++){
                 if (posiciones.contains(i)){
                     continue;
                 }
