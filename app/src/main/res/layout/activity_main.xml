@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <include android:id="@+id/miActionBar"
-        layout="@layout/actionbar"
+    <include android:id="@+id/miActionBarEstrella"
+        layout="@layout/actionbar_estrella"
         >
     </include>
 
@@ -14,16 +14,16 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvMascotas"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/miActionBar"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/miActionBarEstrella"
         />
 
-    <!---<android.support.design.widget.FloatingActionButton
+    <!--<android.support.design.widget.FloatingActionButton
         android:id="@+id/fabMiFAB"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_below="@+id/rvMascotas"
         android:layout_gravity="bottom"
-        android:src="@drawable/camera_outline" />-->
+        android:src="@drawable/camera2" />-->
 
 </RelativeLayout>
