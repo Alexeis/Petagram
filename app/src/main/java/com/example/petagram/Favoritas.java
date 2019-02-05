@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+
 import java.util.ArrayList;
 
 public class Favoritas extends AppCompatActivity {
@@ -28,11 +29,12 @@ public class Favoritas extends AppCompatActivity {
         String mascota;
         String[] values;
 
-        for (int i = 1; 1 <= 5; i++){
+        for (int i = 0; i < 5; i++){
             mascota = parametros.getString(String.valueOf(i));
             values = mascota.split(";");
-            mascotasFav.add(new Mascotas(values[0], Integer.valueOf(values[1]), Integer.valueOf(values[3])));
+            mascotasFav.add(new Mascotas(values[0], Integer.valueOf(values[1]), Integer.valueOf(values[2])));
         }
+
 
         listaMascotasFav = findViewById(R.id.rvMascotasFavoritas);
 
@@ -41,6 +43,9 @@ public class Favoritas extends AppCompatActivity {
 
         listaMascotasFav.setLayoutManager(llmFav);
         inicilizarAdapterFav();
+
+
+
     }
 
     public void inicilizarAdapterFav() {

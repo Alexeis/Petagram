@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -72,10 +73,12 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Mascotas> favoritas = new ArrayList<Mascotas>();
 
         ArrayList<Integer> posiciones = new ArrayList<Integer>();
-        for(int i = 0; i < 5; i++){
+        for(int i = 0; i < mascotas.size(); i++){
             if (mascotas.get(i).getRating() != 0) {
                 favoritas.add(mascotas.get(i));
                 posiciones.add(i);
+                if (favoritas.size() == 5)
+                    break;
             }
         }
 
@@ -85,12 +88,15 @@ public class MainActivity extends AppCompatActivity {
                     continue;
                 }
                 favoritas.add(mascotas.get(i));
+                posiciones.add(i);
                 if (favoritas.size() == 5)
                     break;
             }
         }
 
         Intent intent = new Intent(MainActivity.this, Favoritas.class);
+        intent.putExtra("0", favoritas.get(0).getNombre() + ";" + String.valueOf(favoritas.get(0).getRating())
+                + ";" + String.valueOf(favoritas.get(0).getFoto()));
         intent.putExtra("1", favoritas.get(1).getNombre() + ";" + String.valueOf(favoritas.get(1).getRating())
                 + ";" + String.valueOf(favoritas.get(1).getFoto()));
         intent.putExtra("2", favoritas.get(2).getNombre() + ";" + String.valueOf(favoritas.get(2).getRating())
@@ -99,8 +105,6 @@ public class MainActivity extends AppCompatActivity {
                 + ";" + String.valueOf(favoritas.get(3).getFoto()));
         intent.putExtra("4", favoritas.get(4).getNombre() + ";" + String.valueOf(favoritas.get(4).getRating())
                 + ";" + String.valueOf(favoritas.get(4).getFoto()));
-        intent.putExtra("5", favoritas.get(5).getNombre() + ";" + String.valueOf(favoritas.get(5).getRating())
-                + ";" + String.valueOf(favoritas.get(5).getFoto()));
         startActivity(intent);
     }
 
