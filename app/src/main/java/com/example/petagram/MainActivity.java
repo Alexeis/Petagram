@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         incializarListaMascotas();
         inicilizarAdapter();
 
+
         estrella = findViewById(R.id.ivEstrella);
 
         estrella.setOnClickListener(new View.OnClickListener() {
@@ -68,8 +69,63 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void siguiente(){
-        Intent intent = new Intent(this, Favoritas.class);
+        ArrayList<Mascotas> favoritas = new ArrayList<Mascotas>();
+
+        ArrayList<Integer> posiciones = new ArrayList<Integer>();
+        for(int i = 0; i < 5; i++){
+            if (mascotas.get(i).getRating() != 0) {
+                favoritas.add(mascotas.get(i));
+                posiciones.add(i);
+            }
+        }
+
+        if (favoritas.size() < 5){
+            for(int i = 0; i < favoritas.size(); i++){
+                if (posiciones.contains(i)){
+                    continue;
+                }
+                favoritas.add(mascotas.get(i));
+                if (favoritas.size() == 5)
+                    break;
+            }
+        }
+
+        Intent intent = new Intent(MainActivity.this, Favoritas.class);
+        intent.putExtra("1", favoritas.get(1).getNombre() + ";" + String.valueOf(favoritas.get(1).getRating())
+                + ";" + String.valueOf(favoritas.get(1).getFoto()));
+        intent.putExtra("2", favoritas.get(2).getNombre() + ";" + String.valueOf(favoritas.get(2).getRating())
+                + ";" + String.valueOf(favoritas.get(2).getFoto()));
+        intent.putExtra("3", favoritas.get(3).getNombre() + ";" + String.valueOf(favoritas.get(3).getRating())
+                + ";" + String.valueOf(favoritas.get(3).getFoto()));
+        intent.putExtra("4", favoritas.get(4).getNombre() + ";" + String.valueOf(favoritas.get(4).getRating())
+                + ";" + String.valueOf(favoritas.get(4).getFoto()));
+        intent.putExtra("5", favoritas.get(5).getNombre() + ";" + String.valueOf(favoritas.get(5).getRating())
+                + ";" + String.valueOf(favoritas.get(5).getFoto()));
         startActivity(intent);
     }
+
+    /*public static void quicksort(int A[], int izq, int der) {
+
+        int pivote=A[izq]; // tomamos primer elemento como pivote
+        int i=izq; // i realiza la búsqueda de izquierda a derecha
+        int j=der; // j realiza la búsqueda de derecha a izquierda
+        int aux;
+
+        while(i<j){            // mientras no se crucen las búsquedas
+            while(A[i]<=pivote && i<j) i++; // busca elemento mayor que pivote
+            while(A[j]>pivote) j--;         // busca elemento menor que pivote
+            if (i<j) {                      // si no se han cruzado
+                aux= A[i];                  // los intercambia
+                A[i]=A[j];
+                A[j]=aux;
+            }
+        }
+        A[izq]=A[j]; // se coloca el pivote en su lugar de forma que tendremos
+        A[j]=pivote; // los menores a su izquierda y los mayores a su derecha
+        if(izq<j-1)
+            quicksort(A,izq,j-1); // ordenamos subarray izquierdo
+        if(j+1 <der)
+            quicksort(A,j+1,der); // ordenamos subarray derecho
+    }*/
 }
 

@@ -9,7 +9,6 @@ package="com.example.petagram">
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
-    <activity android:name=".Favoritas"></activity>
     <activity android:name=".MainActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -17,6 +16,43 @@ package="com.example.petagram">
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
     </activity>
+    <activity android:name=".Favoritas"
+        android:parentActivityName=".MainActivity">
+        <!-- Soporte para versiones 4.0 o menores -->
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity"
+            ></meta-data>
+
+    </activity>
 </application>
 
 </manifest>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
